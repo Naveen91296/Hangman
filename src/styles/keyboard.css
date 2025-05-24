@@ -1,0 +1,29 @@
+.btn {
+  min-width: 100px;
+  border: "3px solid black";
+  background: none;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-active {
+  background-color: #328E6E;
+  color: white;
+}
+
+.btn-inactive {
+  background-color: #CF0F47;
+  color: white;
+}
+
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
+  background-color: rgb(205, 205, 216);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  color: gainsboro;
+}
