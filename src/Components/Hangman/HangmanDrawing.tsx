@@ -1,4 +1,7 @@
-const HangmanDrawing = () => {
+type HangmanDrawingProps = {
+  numberOfIncorrectGuesses: number;
+};
+const HangmanDrawing = ({ numberOfIncorrectGuesses }: HangmanDrawingProps) => {
   const HEAD = (
     <div
       style={{
@@ -7,12 +10,11 @@ const HangmanDrawing = () => {
         borderRadius: "100%",
         border: "10px solid black",
         position: "absolute",
-        top: "50px",
-        right: "-30px",
+        top: "70px",
+        right: "-20px",
       }}
     />
   );
-
   const BODY = (
     <div
       style={{
@@ -25,7 +27,6 @@ const HangmanDrawing = () => {
       }}
     />
   );
-
   const RIGHT_ARM = (
     <div
       style={{
@@ -40,7 +41,6 @@ const HangmanDrawing = () => {
       }}
     />
   );
-
   const LEFT_ARM = (
     <div
       style={{
@@ -55,7 +55,6 @@ const HangmanDrawing = () => {
       }}
     />
   );
-
   const RIGHT_LEG = (
     <div
       style={{
@@ -70,7 +69,6 @@ const HangmanDrawing = () => {
       }}
     />
   );
-
   const LEFT_LEG = (
     <div
       style={{
@@ -86,17 +84,14 @@ const HangmanDrawing = () => {
     />
   );
 
+  const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
+
   return (
     <div style={{ position: "relative" }}>
-      {HEAD}
-      {BODY}
-      {RIGHT_ARM}
-      {LEFT_ARM}
-      {RIGHT_LEG}
-      {LEFT_LEG}
+      {BODY_PARTS.slice(0, numberOfIncorrectGuesses)}
       <div
         style={{
-          height: "50px",
+          height: "70px",
           width: "10px",
           background: "black",
           position: "absolute",

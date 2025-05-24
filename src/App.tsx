@@ -1,11 +1,5 @@
 import Hangman from "./Components/Hangman";
-
-const App = () => {
-  return (
-    <div>
-      <Hangman />
-    </div>
-  );
-};
+import "./App.css";
+const App = () => <Hangman />
 
 export default App;
