@@ -9,16 +9,12 @@ const HangmanWord = ({
   revealLetters = false,
 }: HangmanWordProps) => {
   return (
-    <h1
-      style={{
-        textTransform: "uppercase",
-        display: "flex",
-        gap: "12px",
-      }}
-    >
+    <h1 className="hangman-word-container">
       {wordToGuess?.split("")?.map((letter, index) => {
         const showResultsColor =
-          revealLetters && !guessedLetters.includes(letter) ? "#CF0F47ed" : "black";
+          revealLetters && !guessedLetters.includes(letter)
+            ? "#CF0F47ed"
+            : "black";
         return (
           <div
             style={{
