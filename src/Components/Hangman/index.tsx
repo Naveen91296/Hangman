@@ -3,16 +3,18 @@ import HangmanDrawing from "./HangmanDrawing";
 import HangmanWord from "./HangmanWord";
 import Keyboard from "./Keyboard";
 import { KEYS, randomWord } from "./Constant";
+import "../../styles/hangman.css";
 
 const Hangman = () => {
-
   const [wordToGuess, setWordToGuess] = useState<string>(randomWord());
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const incorrectLetters: string[] = guessedLetters.filter(
     (letter) => !wordToGuess.includes(letter)
   );
 
-  const isWinner: boolean = wordToGuess.split("").every((e) => guessedLetters.includes(e));
+  const isWinner: boolean = wordToGuess
+    .split("")
+    .every((e) => guessedLetters.includes(e));
   const isLoser: boolean = incorrectLetters.length >= 6;
 
   const addGuessedLetters = useCallback(
@@ -36,31 +38,14 @@ const Hangman = () => {
   }, [guessedLetters]);
 
   const restartGame = () => {
-    setWordToGuess(randomWord())
-    setGuessedLetters([])
-  }
+    setWordToGuess(randomWord());
+    setGuessedLetters([]);
+  };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        columnGap: "110px",
-        rowGap: "12px",
-        padding: "12px",
-        height: "100vh",
-      }}
-    >
+    <div className="hangman-container">
       <HangmanDrawing numberOfIncorrectGuesses={incorrectLetters?.length} />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "12px",
-        }}
-      >
+      <div className="word-keyboard-section">
         <HangmanWord
           guessedLetters={guessedLetters}
           wordToGuess={wordToGuess}
@@ -75,33 +60,11 @@ const Hangman = () => {
           disableAllButtons={isWinner || isLoser}
         />
         {(isWinner || isLoser) && (
-          <div
-            style={{
-              display: "flex",
-              columnGap: "12px",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "16px",
-              backgroundColor: "#f9f9f9",
-              borderRadius: "8px",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-            }}
-          >
-            <div style={{ fontSize: "24px", fontWeight: "bold" }}>
+          <div className="result-container">
+            <div className="result">
               {isWinner ? "Winner winner! 🍗😆" : "Oops! You lost! 😅💔"}
             </div>
-            <button
-              onClick={restartGame}
-              style={{
-                padding: "4px 12px",
-                fontSize: "20px",
-                backgroundColor: "#007bff",
-                color: "#fff",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
+            <button onClick={restartGame} className="reset-button">
               {isWinner ? "Replay" : "Retry"}
             </button>
           </div>

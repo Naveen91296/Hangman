@@ -1,0 +1,129 @@
+.hangman-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 110px;
+  row-gap: 12px;
+  padding: 12px;
+  height: 100vh;
+  .word-keyboard-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hangman-drawing-container {
+    position: relative;
+    .hook {
+      height: 70px;
+      width: 10px;
+      background: black;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .top-line {
+      height: 10px;
+      width: 150px;
+      background: black;
+      margin-left: 125px;
+    }
+    .stand {
+      height: 450px;
+      width: 10px;
+      background: black;
+      margin-left: 125px;
+    }
+    .bottom-line {
+      height: 10px;
+      width: 250px;
+      background: black;
+    }
+    .head {
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      border: 10px solid black;
+      position: absolute;
+      top: 70px;
+      right: -20px;
+    }
+    .body {
+      height: 100px;
+      width: 10px;
+      background: black;
+      position: absolute;
+      top: 120px;
+      right: 0;
+    }
+    .right-arm {
+      height: 10px;
+      width: 100px;
+      background: black;
+      position: absolute;
+      top: 150px;
+      right: -100px;
+      transform: rotate(-30deg);
+      transform-origin: left bottom;
+    }
+    .left-arm {
+      height: 10px;
+      width: 100px;
+      background: black;
+      position: absolute;
+      top: 150px;
+      right: 10px;
+      transform: rotate(30deg);
+      transform-origin: right bottom;
+    }
+    .right-leg {
+      height: 10px;
+      width: 100px;
+      background: black;
+      position: absolute;
+      top: 210px;
+      right: -90px;
+      transform: rotate(60deg);
+      transform-origin: left bottom;
+    }
+    .left-leg {
+      height: 10px;
+      width: 100px;
+      background: black;
+      position: absolute;
+      top: 210px;
+      right: 0;
+      transform: rotate(-60deg);
+      transform-origin: right bottom;
+    }
+  }
+  .hangman-word-container {
+    text-transform: uppercase;
+    display: flex;
+    gap: 12px;
+  }
+  .result-container {
+    display: flex;
+    column-gap: 12px;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    .result {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .reset-button {
+      padding: 4px 12px;
+      font-size: 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}

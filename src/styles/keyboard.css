@@ -1,29 +1,35 @@
-.btn {
-  min-width: 100px;
-  border: "3px solid black";
-  background: none;
-  color: black;
-  font-size: 24px;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-}
+.keyboard-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 
-.btn-active {
-  background-color: #328E6E;
-  color: white;
-}
+  .btn {
+    min-width: 100px;
+    border: "3px solid black";
+    background: none;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
 
-.btn-inactive {
-  background-color: #CF0F47;
-  color: white;
-}
+  .btn-active {
+    background-color: #328e6e;
+    color: white;
+  }
 
-.btn:hover:not(:disabled),
-.btn:focus:not(:disabled) {
-  background-color: rgb(205, 205, 216);
-}
-.btn:disabled {
-  cursor: not-allowed;
-  color: gainsboro;
+  .btn-inactive {
+    background-color: #cf0f47;
+    color: white;
+  }
+
+  .btn:hover:not(:disabled),
+  .btn:focus:not(:disabled) {
+    background-color: rgb(205, 205, 216);
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    color: gainsboro;
+  }
 }

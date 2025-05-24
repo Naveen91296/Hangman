@@ -2,120 +2,23 @@ type HangmanDrawingProps = {
   numberOfIncorrectGuesses: number;
 };
 const HangmanDrawing = ({ numberOfIncorrectGuesses }: HangmanDrawingProps) => {
-  const HEAD = (
-    <div
-      style={{
-        height: "50px",
-        width: "50px",
-        borderRadius: "100%",
-        border: "10px solid black",
-        position: "absolute",
-        top: "70px",
-        right: "-20px",
-      }}
-    />
-  );
-  const BODY = (
-    <div
-      style={{
-        height: "100px",
-        width: "10px",
-        background: "black",
-        position: "absolute",
-        top: "120px",
-        right: "0px",
-      }}
-    />
-  );
-  const RIGHT_ARM = (
-    <div
-      style={{
-        height: "10px",
-        width: "100px",
-        background: "black",
-        position: "absolute",
-        top: "150px",
-        right: "-100px",
-        rotate: "-30deg",
-        transformOrigin: "left bottom",
-      }}
-    />
-  );
-  const LEFT_ARM = (
-    <div
-      style={{
-        height: "10px",
-        width: "100px",
-        background: "black",
-        position: "absolute",
-        top: "150px",
-        right: "10px",
-        rotate: "30deg",
-        transformOrigin: "right bottom",
-      }}
-    />
-  );
-  const RIGHT_LEG = (
-    <div
-      style={{
-        height: "10px",
-        width: "100px",
-        background: "black",
-        position: "absolute",
-        top: "210px",
-        right: "-90px",
-        rotate: "60deg",
-        transformOrigin: "left bottom",
-      }}
-    />
-  );
-  const LEFT_LEG = (
-    <div
-      style={{
-        height: "10px",
-        width: "100px",
-        background: "black",
-        position: "absolute",
-        top: "210px",
-        right: "0px",
-        rotate: "-60deg",
-        transformOrigin: "right bottom",
-      }}
-    />
-  );
+  
+  const HEAD = <div className="head" />;
+  const BODY = <div className="body" />;
+  const RIGHT_ARM = <div className="right-arm" />;
+  const LEFT_ARM = <div className="left-arm" />;
+  const RIGHT_LEG = <div className="right-leg" />;
+  const LEFT_LEG = <div className="left-leg" />;
 
   const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="hangman-drawing-container">
       {BODY_PARTS.slice(0, numberOfIncorrectGuesses)}
-      <div
-        style={{
-          height: "70px",
-          width: "10px",
-          background: "black",
-          position: "absolute",
-          top: 0,
-          right: 0,
-        }}
-      />
-      <div
-        style={{
-          height: "10px",
-          width: "150px",
-          background: "black",
-          marginLeft: "125px",
-        }}
-      />
-      <div
-        style={{
-          height: "450px",
-          width: "10px",
-          background: "black",
-          marginLeft: "125px",
-        }}
-      />
-      <div style={{ height: "10px", width: "250px", background: "black" }} />
+      <div className="hook" />
+      <div className="top-line" />
+      <div className="stand" />
+      <div className="bottom-line" />
     </div>
   );
 };
